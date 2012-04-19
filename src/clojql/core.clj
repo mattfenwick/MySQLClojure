@@ -74,6 +74,23 @@
      :notnullint      f8
      :notnullstring   f9}))
 
+;;Should work , untested 
+(defn rand-large-record-alt
+  []
+  (let [{:intfield1 (rand-int 10000000)
+        :indexedintfield (rand-int 1000)
+        :stringfield (get-rand-string 40)
+        :foreignkeyfield (+ 1 (rand-int 50005))  
+        :indexfield1 (rand-int 100000)
+        :indexfield2 (rand-int 100000)
+        :indexfield3  (rand-int 100000)
+        :notnullint (rand-int 100000000)
+        :notnullstring (get-rand-string 15)
+	:as myRow
+        }]
+    ))
+
+
 (defn large-insert
   [n]
   (with-connection db
