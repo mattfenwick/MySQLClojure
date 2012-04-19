@@ -50,7 +50,7 @@
 (defn medium-insert
   [n]
   (with-connection db
-   (dotimes [_ n]
+   (dotimes [_ n]  ;; execute the next chunk of code n times.  i don't care about the value of n -- not using it -- so i just ignore it
     (insert-records "mediumtable" (rand-medium-record)))))
 
 (defn rand-large-record
@@ -79,5 +79,11 @@
   (with-connection db
    (dotimes [_ n]
     (insert-records "largetable" (rand-large-record)))))
+
+(defn insert-large-chunk
+  []
+  (with-connection db
+   (apply insert-records "largetable"
+    (take 10000 (repeatedly rand-large-record)))))
 
 
