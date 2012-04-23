@@ -1,3 +1,6 @@
+use mysqlclojure;
+
+
 create table mediumtable (
  id                 int primary key auto_increment,
  decimalfield1      decimal(10,2),
