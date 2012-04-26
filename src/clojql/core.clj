@@ -24,7 +24,7 @@
 
 (defn rand-medium-record
   []
-  (let [f1 (apply str (str (rand-int 100000)) "." (str (rand-int 100)))
+  (let [f1 (apply str [(rand-int 100000) "." (rand-int 100)])    
         f2 (get-rand-string 10)
         f3 (rand-int 10000)
         f4 (rand-int 100)]
